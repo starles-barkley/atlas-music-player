@@ -1,10 +1,8 @@
-const SongTitle = ({ title, author }) => {
+export default function SongTitle() {
   return (
-    <div className="text-center">
-      <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
-      <p className="text-sm text-gray-500">{author}</p>
+    <div>
+      <p className="text-2xl">Tidal Drift</p>
+      <p className="text-gray-500">Echoes of the Sea</p>
     </div>
   );
-};
-
-export default SongTitle;
+}

@@ -1,13 +1,11 @@
-const PlayListItem = ({ title, artist, length }) => {
+export default function PlayListItem({ song, artist, duration }) {
   return (
-    <div className="flex items-center justify-between p-2 bg-gray-100 hover:bg-gray-200 rounded-lg">
-      <div className="flex flex-col">
-        <span className="text-sm font-medium text-gray-800">{title}</span>
-        <span className="text-xs text-gray-500">{artist}</span>
+    <div>
+      <p>{song}</p>
+      <div className="">
+        <p className="text-gray-500">{artist}</p>
+        <p className="text-gray-500">{duration}</p>
       </div>
-      <span className="text-sm text-gray-600">{length}</span>
     </div>
   );
-};
-
-export default PlayListItem;
+}

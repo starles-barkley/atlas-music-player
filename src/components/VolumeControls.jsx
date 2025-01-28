@@ -1,18 +1,23 @@
-const VolumeControls = () => {
+import { useState } from "react";
+import { AudioLines } from "lucide-react";
+
+export default function VolumeControls() {
+  const [value, setValue] = useState(50);
+
   return (
-    <div className="flex items-center space-x-2">
-      <label htmlFor="volume" className="sr-only">
-        Volume
-      </label>
+    <div className="flex items-center gap-2">
+      <AudioLines />
       <input
-        id="volume"
         type="range"
         min="0"
         max="100"
-        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="h-2 w-full cursor-pointer appearance-none rounded-lg accent-gray-600"
+        style={{
+          background: `linear-gradient(to right, rgb(75, 85, 99) ${value}%, rgb(229, 231, 235) ${value}%)`,
+        }}
       />
     </div>
   );
-};
-
-export default VolumeControls;
+}

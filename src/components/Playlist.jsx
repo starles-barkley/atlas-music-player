@@ -1,71 +1,27 @@
-const playlistSongs = [
-  {
-    song: "Painted In Blue",
-    artist: "Soul Canvas",
-    duration: "5:55",
-  },
-  {
-    song: "Tidal Drift",
-    artist: "Echoes of the Sea",
-    duration: "8:02",
-  },
-  {
-    song: "Fading Shadows",
-    artist: "The Emberlight",
-    duration: "3:01",
-  },
-  {
-    song: "Cosmic Drift",
-    artist: "Solar Flare",
-    duration: "5:01",
-  },
-  {
-    song: "Urban Serenade",
-    artist: "Midnight Groove",
-    duration: "4:54",
-  },
-  {
-    song: "Whispers in the Wind",
-    artist: "Rust & Ruin",
-    duration: "6:13",
-  },
-  {
-    song: "Electric Fever",
-    artist: "Neon Jungle",
-    duration: "8:41",
-  },
-  {
-    song: "Edge of the Abyss",
-    artist: "Steel Horizon",
-    duration: "2:27",
-  },
-  {
-    song: "Golden Haze",
-    artist: "Velvet Waves",
-    duration: "3:15",
-  },
-  {
-    song: "Shatter the Silence",
-    artist: "Thunderclap Echo",
-    duration: "8:22",
-  },
-];
+import { PlayListItem } from "./PlayListItem";
+import { useState } from "react";
 
-export default function Playlist() {
+export function PlayList() {
+const [songs, setSongs] = useState({
+    'Midnight Journey': ['Echoes of Eternity', '3:45'],
+    'Sunset Boulevard': ['Neon Dreams', '1:23'],
+    'Whispering Winds': ['Silent Echo', '2:26'],
+    'Electric Pulse': ['Voltage Vibes', '3:36'],
+    'Starlight Serenade': ['Galactic Harmony', '2:21'],
+    'Mystic River': ['Enchanted Waters', '1:13'],
+    'Crimson Horizon': ['Scarlet Skies', '2:14'],
+    'Golden Sands': ['Desert Mirage', '5:24'],
+    'Aurora Borealis': ['Northern Lights', '4:23'],
+    'Celestial Dance': ['Astral Groove', '1:22']
+});
+
+  const songEntries = Object.entries(songs);
+
   return (
-    <div className="flex w-full flex-1 flex-col md:w-1/2">
-      <p className="text-2xl">Playlist</p>
-      <div className="flex flex-1 flex-col gap-4 overflow-y-auto">
-        {playlistSongs.map((track, index) => (
-          <div key={index} className="flex flex-col">
-            <span>{track.song}</span>
-            <div className="flex flex-row justify-between">
-              <span>{track.artist}</span>
-              <span>{track.duration}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="flex flex-col w-full mx-auto p-5">
+      {songEntries.map(([songName, [artist, time]], index) => (
+        <PlayListItem key={index} songName={songName} songTime={time} artist={artist} isPlaying={index == 0} />
+      ))}
     </div>
   );
 }

@@ -1,23 +1,33 @@
-import { useState } from "react";
-import { AudioLines } from "lucide-react";
+import { FaVolumeUp } from "react-icons/fa";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
-export default function VolumeControls() {
-  const [value, setValue] = useState(50);
-
-  return (
-    <div className="flex items-center gap-2">
-      <AudioLines />
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        className="h-2 w-full cursor-pointer appearance-none rounded-lg accent-gray-600"
-        style={{
-          background: `linear-gradient(to right, rgb(75, 85, 99) ${value}%, rgb(229, 231, 235) ${value}%)`,
-        }}
-      />
-    </div>
-  );
+export function VolumeControls () {
+    return (
+        <div className="flex py-2">
+            <div className="mr-3">
+                <FaVolumeUp/>
+            </div>
+            <Slider
+                min={0}
+                max={100}
+                defaultValue={50}
+                onChange={(value) => console.log("Volume:", value)}
+                trackStyle={{
+                    height: '8px',
+                    backgroundColor: '#666666'
+                }}
+                handleStyle={{
+                    height: '110%',
+                    borderColor: '#666666',
+                    backgroundColor: '#666666',
+                    cursor: 'pointer',
+                    opacity: 1,
+                }}
+                railStyle={{
+                    height: '8px',
+                }}
+            />
+        </div>
+    )
 }

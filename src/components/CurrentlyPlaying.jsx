@@ -1,15 +1,15 @@
-import CoverArt from "../components/CoverArt";
-import SongTitle from "../components/SongTitle";
-import PlayControls from "../components/PlayControls";
-import VolumeControls from "../components/VolumeControls";
+import { CoverArt } from "./CoverArt"
+import { SongTitle } from "./SongTitle"
+import { PlayControls } from "./PlayControls"
+import { VolumeControls } from "./VolumeControls"
 
 export default function CurrentlyPlaying() {
   return (
-    <div className="flex w-full flex-col gap-4 md:w-1/2">
-      <CoverArt />
-      <SongTitle />
-      <PlayControls />
-      <VolumeControls />
+    <div className="flex flex-col w-full m-auto p-5 md:border-r-2 border-gray-200">
+      <CoverArt/>
+      <SongTitle/>
+      <PlayControls/>
+      <VolumeControls/>
     </div>
-  );
+  )
 }

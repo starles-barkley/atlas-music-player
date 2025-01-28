@@ -1,7 +1,7 @@
-import Image from '../assets/placeholder.svg';
-
-export default function CoverArt() {
+export function CoverArt () {
     return (
-        <img src={Image} alt="svg" />
+        <div>
+            <img src="/src/assets/placeholder.svg" alt="Cover art" className="rounded-lg"/>
+        </div>
     )
 }

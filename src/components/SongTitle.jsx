@@ -1,8 +1,8 @@
-export default function SongTitle() {
+export function SongTitle () {
   return (
-    <div>
-      <p className="text-2xl">Tidal Drift</p>
-      <p className="text-gray-500">Echoes of the Sea</p>
-    </div>
-  );
+      <div className="flex flex-col my-2">
+          <p className='font-bold text-4xl'>Midnight Journey</p>
+          <p className='opacity-50 text-xl my-2'>Echoes of Eternity</p>
+      </div>
+  )
 }

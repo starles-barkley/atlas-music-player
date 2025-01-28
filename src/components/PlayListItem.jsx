@@ -1,11 +1,11 @@
-export default function PlayListItem({ song, artist, duration }) {
+export function PlayListItem (props) {
   return (
-    <div>
-      <p>{song}</p>
-      <div className="">
-        <p className="text-gray-500">{artist}</p>
-        <p className="text-gray-500">{duration}</p>
+      <div className={`w-full flex justify-between items-center mb-2 rounded-md ${props.isPlaying ? 'bg-blue-50' : 'bg-transparent'}`}>
+          <div className="flex flex-col">
+              <p className='font-bold'>{props.songName}</p>
+              <p className='font-bold opacity-50'>{props.artist}</p>
+          </div>
+          <p className="font-bold opacity-30">{props.songTime   }</p>
       </div>
-    </div>
-  );
+  )
 }

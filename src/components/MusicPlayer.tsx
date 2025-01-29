@@ -1,32 +1,32 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CurrentlyPlaying from "./CurrentlyPlaying"
 import { PlayList } from "./Playlist"
 
 export type Song = {
-  artist: String
+  artist: string
   cover: string
-  duration: Number
-  genre: String
-  id: String
-  lyrics: String
-  song: String
-  title: String
+  duration: number
+  genre: string
+  id: string
+  lyrics: string
+  song: string
+  title: string
 }
 
 export default function MusicPlayer() {
-  const [loading, setLoading] = useState<Boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [playlist, setPlaylist] = useState<Song[]>([]);
   const [currentSong, setCurrentSong] = useState<number>(0)
-  const [isPlaying, setIsPlaying] = useState<Boolean>(false)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
-        const response = await fetch('http://localhost:5173/api/v1/playlist');
+        const response = await fetch('/api/v1/playlist');
         if (response.ok) {
           const data = await response.json();
           const detailedSongs = await Promise.all(data.map(async (song: Song) => {
-            const songDetailsResponse = await fetch(`http://localhost:5173/api/v1/songs/${song.id}`);
+            const songDetailsResponse = await fetch(`/api/v1/songs/${song.id}`);
             if (songDetailsResponse.ok) {
               const songDetails = await songDetailsResponse.json();
               return { ...song, ...songDetails };
@@ -34,7 +34,7 @@ export default function MusicPlayer() {
             return song;
           }));
           const fullDetailedSongs = await Promise.all(detailedSongs.map(async (song: Song) => {
-            const songDetailsResponse = await fetch(`http://localhost:5173/api/v1/lyrics/${song.id}`);
+            const songDetailsResponse = await fetch(`/api/v1/lyrics/${song.id}`);
             if (songDetailsResponse.ok) {
               const songDetails = await songDetailsResponse.json();
               return { ...song, ...songDetails };

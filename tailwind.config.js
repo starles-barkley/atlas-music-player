@@ -1,11 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    './src/**/*.{html,js,jsx}',
-    './public/index.html','./public/index.html',
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "scooby-teal": "#4CB7A5",
+        "scooby-purple": "#7C4DFF",
+        "scooby-orange": "#FF8C42",
+        "scooby-green": "#A3D900",
+      },
+    },
   },
   plugins: [],
 };

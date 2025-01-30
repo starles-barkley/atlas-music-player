@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SongTitle > matches snapshot 1`] = `
+<div>
+  <div>
+    <p
+      class="font-comfortaa text-2xl text-text"
+    >
+      Test Song
+    </p>
+    <p
+      class="font-montserrat text-text"
+    >
+      Test Artist
+    </p>
+  </div>
+</div>
+`;
